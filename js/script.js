@@ -13,7 +13,7 @@ const word = "magnolia";
 //Write a Function to Add Placeholders for Each Letter
 const updatewordProgress = function (word) {
     const placeholders = [];
-    for (const letter of word) {
+    for (const eachLetter of word) {
         placeholders.push("⚫");
     }
     wordProgressElement.innerText = placeholders.join("");
@@ -29,3 +29,16 @@ guessButton.addEventListener("click", function (e) {
     letterInput.value = "";
 });
 
+//Create a Function to Check Player’s Input
+const validatePlayerInput = function (input) {
+    const acceptedLetter = /[a-zA-Z]/;
+    if (input.length === 0) {
+        return "Please enter a letter!"
+    } else if (input.length > 1) {
+        return "Please enter a single letter only!"
+    } else if (input.match !== acceptedLetter) {
+        return "Error. Please enter a letter only!"
+    } else {
+        return input;
+    }
+};
